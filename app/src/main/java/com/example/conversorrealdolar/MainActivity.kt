@@ -12,8 +12,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private fun warnOnEmptyFields() {}
-
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,42 +24,28 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val reais = binding.editBRL.text.toString().trim()
-
         binding.btnDolar.setOnClickListener {
-            if (reais.isNotEmpty()) {
-                val dolares = String.format("%.2f", reais.toDouble() * 0.19)
-                val resultadoUSD = "O valor corresponde a $ $dolares"
-                binding.textUSD.text = resultadoUSD
-            } else {
-                Toast.makeText(applicationContext,
-                    getString(R.string.aviso_caso_vazio),
-                    Toast.LENGTH_SHORT).show()
-            }
+            writeConvertedValue(0.19, '$')
         }
-
         binding.btnEuro.setOnClickListener {
-            if (reais.isNotEmpty()) {
-                val euros = String.format("%.2f", reais.toDouble() * 0.18)
-                val resultadoEUR = "O valor corresponde a € $euros"
-                binding.textUSD.text = resultadoEUR
-            } else {
-                Toast.makeText(applicationContext,
-                    getString(R.string.aviso_caso_vazio),
-                    Toast.LENGTH_SHORT).show()
-            }
+            writeConvertedValue(0.18, '€')
         }
-
         binding.btnPesoArg.setOnClickListener {
-            if (reais.isNotEmpty()) {
-                val pesos = String.format("%.2f", reais.toDouble() * 170)
-                val resultadoARG = "O valor corresponde a € $pesos"
-                binding.textUSD.text = resultadoARG
-            } else {
-                Toast.makeText(applicationContext,
-                    getString(R.string.aviso_caso_vazio),
-                    Toast.LENGTH_SHORT).show()
-            }
+            writeConvertedValue(170.0, '$')
+        }
+    }
+
+    private fun writeConvertedValue(rate: Double, symbol: Char) {
+        val reais = binding.editBRL.text.toString()
+
+        if (reais.isNotEmpty()) {
+            val currency = Math.round((reais.toDouble() * rate) * 100.0) / 100.0
+            val result = "O valor corresponde a $symbol $currency"
+            binding.textResultado.text = result
+        } else {
+            Toast.makeText(applicationContext,
+                getString(R.string.aviso_caso_vazio),
+                Toast.LENGTH_SHORT).show()
         }
     }
 }
