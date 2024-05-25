@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private fun warnOnEmptyFields() {}
+
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +29,37 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnConverter.setOnClickListener {
-            val reais = binding.editBRL.text.toString().trim()
+        val reais = binding.editBRL.text.toString().trim()
 
-            // Math.round(number * 10.0) / 10.0
+        binding.btnDolar.setOnClickListener {
             if (reais.isNotEmpty()) {
                 val dolares = String.format("%.2f", reais.toDouble() * 0.19)
                 val resultadoUSD = "O valor corresponde a $ $dolares"
                 binding.textUSD.text = resultadoUSD
+            } else {
+                Toast.makeText(applicationContext,
+                    getString(R.string.aviso_caso_vazio),
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnEuro.setOnClickListener {
+            if (reais.isNotEmpty()) {
+                val euros = String.format("%.2f", reais.toDouble() * 0.18)
+                val resultadoEUR = "O valor corresponde a € $euros"
+                binding.textUSD.text = resultadoEUR
+            } else {
+                Toast.makeText(applicationContext,
+                    getString(R.string.aviso_caso_vazio),
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnPesoArg.setOnClickListener {
+            if (reais.isNotEmpty()) {
+                val pesos = String.format("%.2f", reais.toDouble() * 170)
+                val resultadoARG = "O valor corresponde a € $pesos"
+                binding.textUSD.text = resultadoARG
             } else {
                 Toast.makeText(applicationContext,
                     getString(R.string.aviso_caso_vazio),
