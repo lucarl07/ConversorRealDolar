@@ -30,8 +30,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnConverter.setOnClickListener {
             val reais = binding.editBRL.text.toString().trim()
 
+            // Math.round(number * 10.0) / 10.0
             if (reais.isNotEmpty()) {
-                val dolares = reais.toDouble() * 0.19
+                val dolares = String.format("%.2f", reais.toDouble() * 0.19)
                 val resultadoUSD = "O valor corresponde a $ $dolares"
                 binding.textUSD.text = resultadoUSD
             } else {
