@@ -4,32 +4,76 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="25dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:text="@string/app_parsed_name"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/text_USD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/output_conversao"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/edit_BRL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="25dp"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
         android:hint="@string/insira_valor_BRL"
         android:inputType="number|numberDecimal|numberSigned" />
 
-    <Button
-        android:id="@+id/btn_converter"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:text="@string/converter_para_USD" />
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dolar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:text="@string/USD" />
+
+        <Button
+            android:id="@+id/btn_euro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:text="@string/EUR" />
+
+        <Button
+            android:id="@+id/btn_peso_arg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:text="@string/ARG" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/text_USD"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/o_valor_corresponde"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:padding="12dp"
+        android:text="@string/app_about_dev"
+        android:textSize="16sp" />
 
 </LinearLayout>
