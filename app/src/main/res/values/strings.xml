@@ -3,5 +3,5 @@
     <string name="insira_valor_BRL">Insira um valor em Real (R$)...</string>
     <string name="converter_para_USD">Converter para Dólar</string>
     <string name="o_valor_corresponde">O valor corresponde à…</string>
-    <string name="aviso_caso_nao_numero">Por favor, digite somente números reais!</string>
+    <string name="aviso_caso_vazio">Por favor, digite um valor válido!</string>
 </resources>
