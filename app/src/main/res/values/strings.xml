@@ -2,8 +2,8 @@
     <string name="app_name">ConversorRealDolar</string>
     <string name="app_about_dev">Desenvolvido por: lucarl07</string>
     <string name="app_parsed_name">Conversor de Moeda</string>
-    <string name="insira_valor_BRL">Insira um valor em Real (R$)...</string>
-    <string name="output_conversao">Aguardando um valor...</string>
+    <string name="insira_valor_BRL">Insira um valor em Real (R$)…</string>
+    <string name="output_conversao">Aguardando um valor…</string>
     <string name="aviso_caso_vazio">Por favor, digite um valor válido!</string>
     <string name="USD">DÓLAR ($)</string>
     <string name="EUR">EURO (€)</string>
