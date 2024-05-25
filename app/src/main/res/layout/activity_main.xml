@@ -17,7 +17,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/text_USD"
+        android:id="@+id/text_resultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
