@@ -27,14 +27,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnConverter.setOnClickListener {
-            val reais = binding.editBRL.text.toString().toDoubleOrNull()
+            val reais = binding.editBRL.text.toString().trim()
 
-            if (reais == null) {
-                binding.outUSD.text = getString(R.string.aviso_caso_nao_numero)
-            } else {
-                val dollars = String.format("%.2f", reais * 0.19)
-                val conversion = "R$ $reais -> $ $dollars"
-                binding.outUSD.text = conversion
+            if (reais.isNotEmpty()) {
+                val dolares = reais.toDouble() * 0.19
+                binding.textUSD.setText("$ $dolares")
             }
         }
     }
