@@ -5,12 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText />
+    <EditText
+        android:id="@+id/edit_BRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:hint="@string/insira_valor_BRL" />
 
-    <Button />
+    <Button
+        android:id="@+id/btn_converter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:text="@string/converter_para_USD" />
 
-    <TextView />
+    <TextView
+        android:id="@+id/text_USD"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/o_valor_corresponde"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
 </LinearLayout>
