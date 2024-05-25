@@ -2,6 +2,7 @@ package com.example.conversorrealdolar
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,7 +32,12 @@ class MainActivity : AppCompatActivity() {
 
             if (reais.isNotEmpty()) {
                 val dolares = reais.toDouble() * 0.19
-                binding.textUSD.setText("$ $dolares")
+                val resultadoUSD = "O valor corresponde a $ $dolares"
+                binding.textUSD.text = resultadoUSD
+            } else {
+                Toast.makeText(applicationContext,
+                    getString(R.string.aviso_caso_vazio),
+                    Toast.LENGTH_SHORT).show()
             }
         }
     }
